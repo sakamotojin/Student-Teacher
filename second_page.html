@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <link rel="icon" type="image/png" sizes="96×96" href="icons/favicon.ico">
+    <title>Student Teacher</title>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise">
+    <script src="node_modules/myscript-math-web/myscript-math-web.js" type="module"></script>
+    <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script type="text/javascript" src="second.js"></script>
+    <style>
+        myscript-math-web {
+            height: 150vh;
+            width: 190vh;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align: center;">
+<h1 id="wel"> </h1>
+<script>
+    var element = document.getElementById("wel");
+    element.innerHTML = "Welcome " +  getCookie("name") + " !  Solve The Following Quadratic Equation :";
+</script>
+<h1>
+<math> 5x<sup>2</sup> -  4x - 12 = 0 </math>
+</h1>
+</div>
+<h1>
+
+        <myscript-math-web scheme="https"  host="webdemoapi.myscript.com"
+                           applicationkey="8d6f167d-a8ca-4203-9bb0-8b29a6f96a91"
+                           hmackey="3d60eece-b5b9-4093-8fbf-1248b768c9ee"
+                           mimetypes='["application/x-latex"] '
+                           touch-action="none"></myscript-math-web>
+
+</h1>
+<div style="text-align:right">
+    <form action ="soundpage.html" onsubmit="proceed()">
+        <input type="submit"  style="color:blue;text-align:center;height:50px;
+    width:150px;font-weight: bold;font-size:25px;" value="Proceed" >
+    </form>
+</div>
+<div class="toast"></div>
+<script>
+    const toast = document.querySelector('.toast');
+    document.querySelector('myscript-math-web').addEventListener('exported', function (event) {
+        math_text = event.detail.exports["application/x-latex"]
+    });
+
+</script>
+
+</body>
+
+</html>

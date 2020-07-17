@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Voice Controlled Notes App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="second.js"></script>
+    <script type="text/javascript" src="node_modules/katex/dist/katex.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shoelace-css/1.0.0-beta16/shoelace.css">
+    <link rel="stylesheet" href="third.css">
+    <link type="text/css" rel="stylesheet" href="node_modules/katex/dist/katex.css">
+
+</head>
+<body>
+<h1 id="wel" style="font-weight:bold;">
+</h1>
+<script>
+    var element = document.getElementById("wel");
+    element.innerHTML =getCookie("name") + " Your Solved Content";
+</script>
+    <br>
+<h1>
+<div id="math">
+
+</div>
+</h1>
+
+<script>
+    var element = document.getElementById("math");
+    element.innerHTML =katex.renderToString(localStorage.getItem("math"), {
+        throwOnError: false
+    });
+</script>
+<div class="container">
+    <h3 class="no-browser-support">Sorry, Your Browser Doesn't Support the Web Speech API. Try Opening This Demo In Google Chrome.</h3>
+    <div class="app">
+        <div class="input-single">
+            <textarea id="note-textarea"  rows="3"></textarea>
+        </div>
+        <button id="start-record-btn" title="Start Recording">Start Recognition</button>
+        <button id="pause-record-btn" title="Pause Recording">Pause Recognition</button>
+        <button id="save-note-btn" title="Save Note">Save Note</button>
+        <button id="clear-note-btn" title="Clear Note">Clear Note</button>
+        <br><br>
+        <h3>My Notes</h3>
+        <ul id="notes" style="text-align: left;">
+            <li>
+            </li>
+        </ul>
+
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<form action ="final.html" onsubmit="finalsub()">
+    <input type="submit"  style="color:blue;text-align:center;height:50px;
+    width:400px;font-weight: bold;font-size:25px;" value="Generate Report" >
+</form>
+<script src="sound.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final Report</title>
+    <link type="text/css" rel="stylesheet" href="node_modules/katex/dist/katex.css">
+    <script type="text/javascript" src="node_modules/katex/dist/katex.js"></script>
+    <script type="text/javascript" src="final.js"> </script>
+    <h1 id="name" style="text-align:center;text-decoration:underline;text-decoration-color:#1da7da;font-family:'GFS Artemisia'"></h1>
+    <script>
+        var element = document.getElementById("name");
+        element.innerHTML = "" +  getCookie("name") + "'s Final Report";
+        </script>
+</head>
+<body>
+ <div style="text-align: center">
+        <h1 id="math">
+            <br>
+        </h1>
+         <script>
+         var element = document.getElementById("math");
+         element.innerHTML =katex.renderToString(localStorage.getItem("math"), {
+             throwOnError: false
+         });
+     </script>
+ </div>
+
+ <div style="border-left:80px ">
+     <h1 id="speech" style="text-align:left">
+     </h1>
+ </div>
+
+     <script>
+         var stored = JSON.parse(localStorage.getItem("notes"));
+        var final_s ="";
+         console.log(stored);
+         for(var key in stored){
+             final_s = final_s.concat("<br>",key , ". &nbsp &nbsp", stored[key]) ;
+             console.log(stored[key]);
+         }
+         var element = document.getElementById("speech");
+         element.innerHTML = final_s;
+
+         </script>
+
+</body>
+</html>
